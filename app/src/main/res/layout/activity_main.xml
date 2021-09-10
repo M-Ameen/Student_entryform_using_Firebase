@@ -48,6 +48,6 @@
         android:layout_marginLeft="150dp"
         android:layout_marginTop="40dp"
         android:onClick="buttonclicked"
-        android:text="Button" />
+        android:text="Submit" />
 
 </LinearLayout>
