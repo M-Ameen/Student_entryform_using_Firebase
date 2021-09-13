@@ -8,46 +8,65 @@
     tools:context=".MainActivity">
 
 
-    <EditText
-        android:id="@+id/id"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:hint="Enter Id" />
+<!--    for student form-->
+<!--    <EditText-->
+<!--        android:id="@+id/id"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:hint="Enter Id" />-->
+<!--    <EditText-->
+<!--        android:id="@+id/name"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:hint="Enter Name"-->
+<!--        android:layout_marginTop="5dp"/>-->
+<!--    <EditText-->
+<!--        android:id="@+id/department"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:hint="Department"-->
+<!--        />-->
+<!--    <EditText-->
+<!--        android:id="@+id/duration"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:hint="Duration"-->
+<!--        />-->
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="150dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:onClick="buttonclicked"-->
+<!--        android:text="Submit" />-->
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:hint="Enter Name"
-        android:layout_marginTop="5dp"/>
+<!--    for image upload-->
 
-    <EditText
-        android:id="@+id/department"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="100dp"
-        android:hint="Department"
+    <ImageView
+        android:id="@+id/placeimage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
         />
-    <EditText
-        android:id="@+id/duration"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="5dp"
-        android:hint="Duration"
-
-        />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/browse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="40dp"
-        android:onClick="buttonclicked"
-        android:text="Submit" />
+        android:text="Select image"
+        />
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload image"
+        />
 
 </LinearLayout>
