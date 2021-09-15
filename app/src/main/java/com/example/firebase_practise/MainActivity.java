@@ -38,13 +38,14 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-//    EditText name,department,duration,id;
+    EditText name,department,duration,id;
 
 
     ImageView placeimg;
-    Button browse,upload;
+    Button browse;
     Uri imageuri;
     Bitmap bitmap;
 
@@ -53,9 +54,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        name=findViewById(R.id.name);
+        department=findViewById(R.id.department);
+        duration=findViewById(R.id.duration);
+        id=findViewById(R.id.id);
         placeimg=findViewById(R.id.placeimage);
         browse=findViewById(R.id.browse);
-        upload=findViewById(R.id.upload);
+
 
         ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
@@ -98,37 +103,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-            upload.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    uploadtofirebase();
-                }
-            });
-
-
-
-
-
-
-//        name=findViewById(R.id.name);
-//        department=findViewById(R.id.department);
-//        duration=findViewById(R.id.duration);
-//        id=findViewById(R.id.id);
     }
-
+    public void upload(View view) {
+        uploadtofirebase();
+    }
     private void uploadtofirebase() {
         ProgressDialog dialog=new ProgressDialog(this);
         dialog.setTitle("Image Uploader");
         dialog.show();
         FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
-        StorageReference uploader=firebaseStorage.getReference().child("image1");
+        final StorageReference uploader=firebaseStorage.getReference().child("image1"+new Random().nextInt(50));
         uploader.putFile(imageuri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        dialog.dismiss();
-                        Toast.makeText(MainActivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();
+                        uploader.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                dialog.dismiss();
 
+                                String variable_name=name.getText().toString().trim();
+                                String variable_department=department.getText().toString().trim();
+                                String variable_duration=duration.getText().toString().trim();
+                                String variable_id=id.getText().toString().trim();
+                                String variable_uri=uri.toString();
+
+                                FirebaseDatabase db=FirebaseDatabase.getInstance();
+                                DatabaseReference node=db.getReference("Student");
+
+                                firebasedbhandler obj=new firebasedbhandler(variable_name,variable_department,variable_duration,variable_uri);
+                                node.child(variable_id).setValue(obj);
+                                Toast.makeText(MainActivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();
+
+                                name.setText("");
+                                department.setText("");
+                                duration.setText("");
+                                id.setText("");
+                            }
+                        });
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -142,22 +154,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    public void buttonclicked(View view) {
-//        String variable_name=name.getText().toString().trim();
-//        String variable_department=department.getText().toString().trim();
-//        String variable_duration=duration.getText().toString().trim();
-//        String variable_id=id.getText().toString().trim();
-//
-//        firebasedbhandler obj=new firebasedbhandler(variable_name,variable_department,variable_duration);
-//        FirebaseDatabase db=FirebaseDatabase.getInstance();
-//        DatabaseReference node=db.getReference("Student");
-//        node.child(variable_id).setValue(obj);
-//
-//        name.setText("");
-//        department.setText("");
-//        duration.setText("");
-//        id.setText("");
-//        Toast.makeText(this, "Record Inserted: ", Toast.LENGTH_SHORT).show();
-//
-//    }
+
 }

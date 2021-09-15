@@ -9,50 +9,14 @@
 
 
 <!--    for student form-->
-<!--    <EditText-->
-<!--        android:id="@+id/id"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="100dp"-->
-<!--        android:hint="Enter Id" />-->
-<!--    <EditText-->
-<!--        android:id="@+id/name"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="100dp"-->
-<!--        android:hint="Enter Name"-->
-<!--        android:layout_marginTop="5dp"/>-->
-<!--    <EditText-->
-<!--        android:id="@+id/department"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:layout_marginLeft="100dp"-->
-<!--        android:hint="Department"-->
-<!--        />-->
-<!--    <EditText-->
-<!--        android:id="@+id/duration"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="100dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:hint="Duration"-->
-<!--        />-->
-<!--    <Button-->
-<!--        android:id="@+id/button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="150dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:onClick="buttonclicked"-->
-<!--        android:text="Submit" />-->
-
-<!--    for image upload-->
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <ImageView
         android:id="@+id/placeimage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         />
@@ -61,12 +25,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select image"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        />
+</LinearLayout>
+
+    <EditText
+        android:layout_marginTop="30dp"
+        android:id="@+id/id"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:hint="Enter Id" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:hint="Enter Name"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:id="@+id/department"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="100dp"
+        android:hint="Department"
+        />
+    <EditText
+        android:id="@+id/duration"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="5dp"
+        android:hint="Duration"
         />
     <Button
-        android:id="@+id/upload"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload image"
-        />
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="40dp"
+        android:onClick="upload"
+        android:text="Upload" />
+
+
 
 </LinearLayout>
